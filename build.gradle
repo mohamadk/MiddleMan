@@ -1,0 +1,46 @@
+
+buildscript {
+    ext.kotlin_version = '1.2.71'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+project.ext{
+    buildToolsVersion="28.0.3"
+    compileSdkVersion=28
+    minSdkVersion=16
+    targetSdkVersion=28
+    supportLibrary="28.0.0"
+
+    lifecycle = "1.1.1"
+    support = "27.1.1"
+
+    paging = "1.0.1"
+
+    junit = "4.12"
+    okhttp_logging_interceptor = "3.9.0"
+    test_runner = "1.0.1"
+    arch_core = "1.1.1"
+    kotlin = "1.2.41"
+    mockito = "2.7.19"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

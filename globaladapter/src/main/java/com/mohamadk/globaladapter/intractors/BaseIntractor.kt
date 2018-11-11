@@ -1,0 +1,3 @@
+package com.mohamadk.globaladapter.intractors
+
+interface BaseIntractor
