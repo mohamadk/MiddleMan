@@ -1,7 +1,5 @@
 package com.mohamadk.globaladapter.adapter.networkstate
 
-import android.content.Context
-import android.view.View
 import com.mohamadk.globaladapter.R
 import com.mohamadk.globaladapter.adapter.model.BaseModel
 import kotlinx.android.parcel.Parcelize
@@ -14,10 +12,11 @@ enum class Status {
 
 @Parcelize
 data class NetworkState private constructor(
-        val status: Status,
-        val msg: String? = null) : BaseModel {
+    val status: Status,
+    val msg: String? = null
+) : BaseModel {
 
-    override fun defaultView(context: Context): View? {
+    override fun defaultViewClass(): Class<*>? {
         return null
     }
 

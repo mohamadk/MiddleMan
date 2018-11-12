@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mohamadk.globaladapter.adapter.GeneralViewAdapter
+import com.mohamadk.globaladapter.adapter.adapters.GeneralViewAdapter
 import com.mohamadk.globaladapter.adapter.model.BaseModel
 import com.mohamadk.globaladapter.adapter.networkstate.NetworkState
 import com.mohamadk.globaladapter.intractors.RetryListener
@@ -55,7 +55,7 @@ class SampleListFragment
                     it.setNetworkState(NetworkState.LOADED)
                     it.submitList(defaultItems)
 
-                },3000)
+                },1000)
 
             }
             layoutManager = LinearLayoutManager(activity)

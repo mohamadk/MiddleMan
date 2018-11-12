@@ -1,4 +1,4 @@
-package com.mohamadk.globaladapter.adapter
+package com.mohamadk.globaladapter.adapter.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.mohamadk.globaladapter.adapter.AdapterProvider
+import com.mohamadk.globaladapter.adapter.GlobalViewHolder
 import com.mohamadk.globaladapter.adapter.model.BaseModel
 import com.mohamadk.globaladapter.adapter.model.Comparator
 import com.mohamadk.globaladapter.adapter.networkstate.NetworkState
@@ -39,39 +41,27 @@ open class GeneralPagingViewAdapter(
             inflater = LayoutInflater.from(parent.context)
         }
 
-        var itemView: View? = if (isNetworkStateView(viewType)) {
-            inflate(networkState!!.defaultResLayout()!!, parent)
-        } else {
-            getItem(viewType)!!.defaultView(parent.context)
-        }
-
-        if (itemView == null) {
-            if (getItem(viewType)!!.defaultResLayout() != null) {
-                itemView = inflate(getItem(viewType)!!.defaultResLayout()!!, parent)
-            } else {
-                throw IllegalStateException("Please implement defaultResLayout or defaultView in ${getItem(viewType)!!::class.java.name} model")
-            }
-        }
+        val itemView: View = createItemView(
+            viewType
+            ,inflater!!
+            , parent
+        )
 
         if (itemView is RequireInteractor<*>) {
             (itemView as RequireInteractor<BaseIntractor>).setInteractor(intractor!!)
         }
 
-        return GlobalViewHolder<BaseModel>(itemView!!)
-    }
-
-    private fun inflate(resLayout: Int, parent: ViewGroup): View? {
-        return inflater!!.inflate(
-            resLayout,
-            parent,
-            false
-        )
+        return GlobalViewHolder<BaseModel>(itemView)
     }
 
     private fun hasExtraRow() = networkState != null && networkState != NetworkState.LOADED
 
     override fun getItemViewType(position: Int): Int {
-        return position
+        return if (hasExtraRow() && position == itemCount - 1) {
+            networkState!!.getViewType().type
+        } else {
+            getItem(position)!!.getViewType().type
+        }
     }
 
     override fun submitList(items: PagedList<BaseModel>?) {
