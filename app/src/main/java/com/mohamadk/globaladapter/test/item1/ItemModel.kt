@@ -11,11 +11,11 @@ class ItemModel(
     , val family: String
 ) : BaseModel {
 
-    override fun defaultViewClass(): Class<*>? {
+    override fun defaultViewClass(position: Int): Class<*>? {
         return null
     }
 
-    override fun defaultResLayout(): Int? {
+    override fun defaultResLayout(position: Int): Int? {
         return R.layout.item_layout
     }
 

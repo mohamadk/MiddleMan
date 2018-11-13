@@ -1,6 +1,5 @@
 package com.mohamadk.globaladapter.adapter.adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -16,16 +15,12 @@ open class GeneralViewAdapter(
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>()
     , AdapterProvider<List<BaseModel>> {
 
-    val TAG = "GeneralViewAdapter"
-
     private var networkState: NetworkState? = null
     var items: List<BaseModel> = listOf()
     var inflater: LayoutInflater? = null
 
-    private fun isNetworkStateView(position: Int, from: String? = null) =
-        (hasExtraRow() && position == itemCount - 1).also {
-            Log.d(TAG, "position=$position isNetworkStateView=$it networkState=$networkState from=$from")
-        }
+    private fun isNetworkStateView(position: Int) =
+        (hasExtraRow() && position == itemCount - 1)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -49,7 +44,7 @@ open class GeneralViewAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as GlobalViewHolder<BaseModel>).bind(
-            if (isNetworkStateView(position, "onBindViewHolder")) {
+            if (isNetworkStateView(position)) {
                 networkState
             } else {
                 getItem(position)
@@ -75,9 +70,9 @@ open class GeneralViewAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return if (hasExtraRow() && position == itemCount - 1) {
-            networkState!!.getViewType().type
+            networkState!!.getViewType(position).type
         } else {
-            items[position].getViewType().type
+            items[position].getViewType(position).type
         }
     }
 

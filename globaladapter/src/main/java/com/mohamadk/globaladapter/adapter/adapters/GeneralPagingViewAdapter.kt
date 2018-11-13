@@ -11,6 +11,7 @@ import com.mohamadk.globaladapter.adapter.GlobalViewHolder
 import com.mohamadk.globaladapter.adapter.model.BaseModel
 import com.mohamadk.globaladapter.adapter.model.Comparator
 import com.mohamadk.globaladapter.adapter.networkstate.NetworkState
+import com.mohamadk.globaladapter.adapter.placeholder.PlaceHolder
 import com.mohamadk.globaladapter.intractors.BaseIntractor
 import com.mohamadk.globaladapter.intractors.RequireInteractor
 
@@ -58,9 +59,11 @@ open class GeneralPagingViewAdapter(
 
     override fun getItemViewType(position: Int): Int {
         return if (hasExtraRow() && position == itemCount - 1) {
-            networkState!!.getViewType().type
-        } else {
-            getItem(position)!!.getViewType().type
+            networkState!!.getViewType(position).type
+        } else if(getItem(position)!=null){
+            getItem(position)!!.getViewType(position).type
+        }else{
+            return PlaceHolder().getViewType(position).type
         }
     }
 

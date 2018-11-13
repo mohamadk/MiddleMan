@@ -7,6 +7,6 @@ class GlobalViewHolder<in MODEL>(
         private val itemView1: View
 ) : RecyclerView.ViewHolder(itemView1) {
     fun bind(item: MODEL?) {
-        (itemView1 as Binder<MODEL>).bind(item!!)
+        (itemView1 as Binder<MODEL>).bind(item)
     }
 }

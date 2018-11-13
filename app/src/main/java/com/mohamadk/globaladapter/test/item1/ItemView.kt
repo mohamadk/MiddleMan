@@ -15,8 +15,8 @@ class ItemView
     , Binder<ItemModel>
     {
 
-    override fun bind(item: ItemModel) {
-        tv_name.text = item.name
+    override fun bind(item: ItemModel?) {
+        tv_name.text = item!!.name
         tv_family.text = item.family
     }
 

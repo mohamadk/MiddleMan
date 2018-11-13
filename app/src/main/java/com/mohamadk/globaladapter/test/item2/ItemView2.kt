@@ -24,8 +24,8 @@ class ItemView2
         setCardBackgroundColor(Color.GRAY)
     }
 
-    override fun bind(item: ItemModel2) {
-        tv_title.text = item.title
+    override fun bind(item: ItemModel2?) {
+        tv_title.text = item!!.title
         item.url//todo do something with the url ;)
     }
 

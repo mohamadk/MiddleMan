@@ -11,11 +11,11 @@ class ItemModel2(
 ) : BaseModel {
 
 
-    override fun defaultResLayout(): Int? {
+    override fun defaultResLayout(position: Int): Int? {
         return null
     }
 
-    override fun defaultViewClass(): Class<*>? {
+    override fun defaultViewClass(position: Int): Class<*>? {
         return ItemView2::class.java
     }
 

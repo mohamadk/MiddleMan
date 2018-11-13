@@ -5,14 +5,16 @@ import androidx.annotation.LayoutRes
 import com.mohamadk.globaladapter.adapter.model.ModelTypes.types
 
 interface BaseModel : ModelComparator<BaseModel>, Parcelable {
-
-    fun getViewType(): ModelType {
+    /**
+     * return the corresponding viewType and register it to "types set" if it was not registered before
+     */
+    fun getViewType(position:Int): ModelType {
 
         var type = types.find {
             val (_, defaultResLayout, defaultViewClass, modelClass) = it
 
-            defaultViewClass == defaultViewClass()
-                    && defaultResLayout == defaultResLayout()
+            defaultViewClass == defaultViewClass(position)
+                    && defaultResLayout == defaultResLayout(position)
                     && modelClass == this::class.java
 
         }
@@ -20,22 +22,22 @@ interface BaseModel : ModelComparator<BaseModel>, Parcelable {
         return if (type != null) {
             type
         } else {
-            type = ModelType(types.size, defaultResLayout(), defaultViewClass(), this::class.java)
+            type = ModelType(types.size, defaultResLayout(position), defaultViewClass(position), this::class.java)
             types.add(type)
             type
         }
     }
 
     /**
-     * implement this method or "defaultView" in your model to be used in adapter
+     * implement this method or "defaultViewClass" in your model to be used in adapter
      */
     @LayoutRes
-    fun defaultResLayout(): Int?
+    fun defaultResLayout(position: Int): Int?
 
     /**
      * implement this method or "defaultResLayout" in your model to be used in adapter
      */
-    fun defaultViewClass(): Class<*>?
+    fun defaultViewClass(position: Int): Class<*>?
 
     /**
      * implement this and areItemsTheSame method if you using paging adapter
