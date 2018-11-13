@@ -1,1 +1,1 @@
-include ':app', ':globaladapter'
+include ':app', ':middleman'
