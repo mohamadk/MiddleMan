@@ -4,7 +4,7 @@
 Middleman is a library for helping handling items in recyclerView adapters with better following SOLID rules.     
 it supports both simple list and paging list in recyclerView.      
     
-[ ![Download](https://api.bintray.com/packages/mohamad-khaleghy/MiddleMan/MiddleMan/images/download.svg?version=0.1.0) ](https://bintray.com/mohamad-khaleghy/MiddleMan/MiddleMan/0.1.0/link)
+[ ![Download](https://api.bintray.com/packages/mohamad-khaleghy/MiddleMan/MiddleMan/images/download.svg) ](https://bintray.com/mohamad-khaleghy/MiddleMan/MiddleMan/_latestVersion)
 
 ### why use Middleman?
 [you can find out here.][1]
