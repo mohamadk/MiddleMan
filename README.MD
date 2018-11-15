@@ -1,64 +1,33 @@
 # MiddleMan
-##### A Better way to handle items in recyclerView.
-
-How do I use MiddleMan?
--------------------
+##### A Better way to handle items in the Simple list and Paged list in RecyclerView.
 
 Middleman is a library for helping handling items in recyclerView adapters with better following SOLID rules.     
-it support both simple list and paging list in recyclerView.      
+it supports both simple list and paging list in recyclerView.      
+    
+[ ![Download](https://api.bintray.com/packages/mohamad-khaleghy/MiddleMan/MiddleMan/images/download.svg?version=0.1.0) ](https://bintray.com/mohamad-khaleghy/MiddleMan/MiddleMan/0.1.0/link)
 
-### what is the problem?
-in almost all of the android applications recyclerview is a mandatory part.     
-and adapter is the key point of implementing a recyclerview.
+### why use Middleman?
+[you can find out here.][1]
 
-this is the way most people handle recyclerViewAdapters:
 
-    class SampleRecyclerView: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+### Gradle
+    implementation 'com.mohamadk:middleman:0.1'
     
-            return when (viewType) {
-                ViewType1 -> {
-                    createViewHolder1()
-                }
-                ViewType2 -> {
-                    createViewHolder2()
-                }
-                else -> {
-    
-                }
-            }
+
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            
+            maven {
+                    url  "https://dl.bintray.com/mohamad-khaleghy/MiddleMan"
+                  }
         }
-    
-        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-            holder.bind(items)
-        }
-    
-        class ViewHolder1(val itemView1: View) : RecyclerView.ViewHolder(itemView1) {
-    
-        }
-    
-        class ViewHolder2(val itemView1: View) : RecyclerView.ViewHolder(itemView1) {
-    
-        }
-        
-        ....
     }
 
-so whats wrong with this implementation?      
+### How to use it
 
-1- you have to modify your adapter every time you add a new item to your recyclerview.    
-2- you have to create a different adapter for each page of your app or after a while 
-you find your self in a big mess.       
-3- you cannot interact with your fragment or activity from your items directly.     
-4- if after a while some one new came to the development team they have problem in 
-   finding items in each page of the application.    
-
-#### Solution
-Using the middleman      
-
-How to Use Middle man?
-
-create instance of GeneralViewAdapter and set it to recyclerView 
+1- create an instance of GeneralViewAdapter and set it to recyclerView 
 
      recyclerView.apply {
 
@@ -69,7 +38,7 @@ create instance of GeneralViewAdapter and set it to recyclerView
             layoutManager = LinearLayoutManager(activity)
         }
 
-implement BaseModel in every item model.
+2- implement BaseModel in every item model.
 implement defaultResLayout or defaultViewClass method.    
 you can declare a reslayout or a class of your customView item.     
 
@@ -85,9 +54,9 @@ you can declare a reslayout or a class of your customView item.
     
     }
     
-create a customView for each item in your recycler view that 
+3- create a customView for each item in your recycler view that 
 implement Binder interface and if need to interact with 
-activity or fragment implement corresponding interactor.     
+activity or fragment implement the corresponding interactor.     
 
     open class ItemView @JvmOverloads constructor(
         context: Context,
@@ -109,10 +78,5 @@ activity or fragment implement corresponding interactor.
     }
  
  and that's it.
- 
- 1- you don't need to modify adapter every time you create a new Item in list.       
- 2- you don't need to create a different adapter for different pages.     
- 3- you can easily interact with your fragment and activity from your items.    
- 4- and if new member came in your development team because every item is custom view they
- can easily find the items in big project with help of layout inspector in android studio.
-    
+
+[1]: https://medium.com/@MohamadKhaleghy/middleman-e9e26c0fe4a4
