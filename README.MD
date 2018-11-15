@@ -11,7 +11,7 @@ it supports both simple list and paging list in recyclerView.
 
 
 ### Gradle
-    implementation 'com.mohamadk:middleman:0.1'
+    implementation "com.mohamadk:middleman:{last-version}"
     
 
     allprojects {
