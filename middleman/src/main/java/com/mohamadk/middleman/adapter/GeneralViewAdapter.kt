@@ -1,12 +1,12 @@
-package com.mohamadk.middleman.adapter.adapters
+package com.mohamadk.middleman.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mohamadk.middleman.adapter.AdapterProvider
-import com.mohamadk.middleman.adapter.GlobalViewHolder
-import com.mohamadk.middleman.adapter.model.BaseModel
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
+import com.mohamadk.middleman.AdapterProvider
+import com.mohamadk.middleman.GlobalViewHolder
+import com.mohamadk.middleman.model.BaseModel
+import com.mohamadk.middleman.networkstate.NetworkState
 import com.mohamadk.middleman.intractors.BaseIntractor
 import com.mohamadk.middleman.intractors.RequireInteractor
 
@@ -16,7 +16,7 @@ open class GeneralViewAdapter(
     , AdapterProvider<List<BaseModel>> {
 
     private var networkState: NetworkState? = null
-    var items: List<BaseModel> = listOf()
+    var items: MutableList<BaseModel> = mutableListOf()
     var inflater: LayoutInflater? = null
 
     private fun isNetworkStateView(position: Int) =
@@ -28,10 +28,10 @@ open class GeneralViewAdapter(
             inflater = LayoutInflater.from(parent.context)
         }
 
-        val itemView=createItemView(
+        val itemView= createItemView(
             viewType
-            ,inflater!!
-            ,parent
+            , inflater!!
+            , parent
         )
 
         if (itemView is RequireInteractor<*>) {
@@ -57,7 +57,7 @@ open class GeneralViewAdapter(
     }
 
     override fun submitList(items: List<BaseModel>?) {
-        this.items = items ?: listOf()
+        this.items = items?.toMutableList() ?: mutableListOf()
         notifyDataSetChanged()
     }
 

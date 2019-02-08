@@ -29,7 +29,10 @@ dependencies {
 
     implementation ('androidx.appcompat:appcompat:1.0.0-alpha1')
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    implementation 'androidx.paging:paging-runtime:2.1.0-beta01'
+    implementation 'androidx.paging:paging-runtime:2.1.0'
+
+    androidTestImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 }
 
 androidExtensions {

@@ -1,10 +1,10 @@
-package com.mohamadk.middleman.adapter.adapters
+package com.mohamadk.middleman.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mohamadk.middleman.adapter.model.ModelTypes
+import com.mohamadk.middleman.model.ModelTypes
 
 fun createItemView(
     viewType: Int

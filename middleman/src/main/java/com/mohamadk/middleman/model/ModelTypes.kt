@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter.model
+package com.mohamadk.middleman.model
 
 object ModelTypes {
     val types:MutableSet<ModelType> = mutableSetOf()

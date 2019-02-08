@@ -1,12 +1,12 @@
-package com.mohamadk.middleman.adapter.placeholder
+package com.mohamadk.middleman.placeholder
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.LinearLayoutCompat
 import com.mohamadk.middleman.R
-import com.mohamadk.middleman.adapter.Binder
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
+import com.mohamadk.middleman.Binder
+import com.mohamadk.middleman.networkstate.NetworkState
 
 open class PlaceHolderView @JvmOverloads constructor(
     context: Context,

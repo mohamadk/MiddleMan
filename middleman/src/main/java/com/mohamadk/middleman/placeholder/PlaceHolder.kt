@@ -1,9 +1,9 @@
-package com.mohamadk.middleman.adapter.placeholder
+package com.mohamadk.middleman.placeholder
 
-import com.mohamadk.middleman.adapter.model.BaseModel
+import com.mohamadk.middleman.model.BaseModel
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
+
 open class PlaceHolder : BaseModel {
 
     override fun defaultViewClass(position: Int): Class<*>? {

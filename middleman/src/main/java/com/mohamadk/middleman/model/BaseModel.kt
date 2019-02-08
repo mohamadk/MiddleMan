@@ -1,10 +1,10 @@
-package com.mohamadk.middleman.adapter.model
+package com.mohamadk.middleman.model
 
 import android.os.Parcelable
 import androidx.annotation.LayoutRes
-import com.mohamadk.middleman.adapter.model.ModelTypes.types
+import com.mohamadk.middleman.model.ModelTypes.types
 
-interface BaseModel : ModelComparator<BaseModel>, Parcelable {
+interface BaseModel : ModelComparator<BaseModel> {
     /**
      * return the corresponding viewType and register it to "types set" if it was not registered before
      */
@@ -22,7 +22,12 @@ interface BaseModel : ModelComparator<BaseModel>, Parcelable {
         return if (type != null) {
             type
         } else {
-            type = ModelType(types.size, defaultResLayout(position), defaultViewClass(position), this::class.java)
+            type = ModelType(
+                types.size,
+                defaultResLayout(position),
+                defaultViewClass(position),
+                this::class.java
+            )
             types.add(type)
             type
         }

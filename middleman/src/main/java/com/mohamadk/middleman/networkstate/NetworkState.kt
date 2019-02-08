@@ -1,7 +1,7 @@
-package com.mohamadk.middleman.adapter.networkstate
+package com.mohamadk.middleman.networkstate
 
 import com.mohamadk.middleman.R
-import com.mohamadk.middleman.adapter.model.BaseModel
+import com.mohamadk.middleman.model.BaseModel
 import kotlinx.android.parcel.Parcelize
 
 enum class Status {
@@ -10,7 +10,7 @@ enum class Status {
     FAILED
 }
 
-@Parcelize
+
 open class NetworkState private constructor(
     val status: Status,
     val msg: String? = null
@@ -33,8 +33,16 @@ open class NetworkState private constructor(
     }
 
     companion object {
-        val LOADED = NetworkState(Status.SUCCESS)
-        val LOADING = NetworkState(Status.RUNNING)
-        fun error(msg: String?) = NetworkState(Status.FAILED, msg)
+        val LOADED =
+            NetworkState(Status.SUCCESS)
+        val LOADING =
+            NetworkState(Status.RUNNING)
+        fun error(msg: String?) =
+            NetworkState(Status.FAILED, msg)
+    }
+
+    override fun equals(other: Any?): Boolean {
+        return other is NetworkState && other.status == this.status && this.msg == other.msg
     }
 }
+

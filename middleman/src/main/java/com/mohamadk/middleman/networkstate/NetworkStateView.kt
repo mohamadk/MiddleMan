@@ -1,9 +1,9 @@
-package com.mohamadk.middleman.adapter.networkstate
+package com.mohamadk.middleman.networkstate
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.LinearLayoutCompat
-import com.mohamadk.middleman.adapter.Binder
+import com.mohamadk.middleman.Binder
 import com.mohamadk.middleman.intractors.RequireInteractor
 import com.mohamadk.middleman.intractors.RetryListener
 import com.mohamadk.middleman.toVisibility

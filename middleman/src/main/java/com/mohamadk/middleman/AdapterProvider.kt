@@ -1,7 +1,7 @@
-package com.mohamadk.middleman.adapter
+package com.mohamadk.middleman
 
 import androidx.recyclerview.widget.RecyclerView
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
+import com.mohamadk.middleman.networkstate.NetworkState
 
 interface AdapterProvider<in LIST_MODEL> {
 

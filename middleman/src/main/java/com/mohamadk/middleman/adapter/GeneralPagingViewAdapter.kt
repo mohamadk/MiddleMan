@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter.adapters
+package com.mohamadk.middleman.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,12 +6,12 @@ import android.view.ViewGroup
 import androidx.paging.PagedList
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.mohamadk.middleman.adapter.AdapterProvider
-import com.mohamadk.middleman.adapter.GlobalViewHolder
-import com.mohamadk.middleman.adapter.model.BaseModel
-import com.mohamadk.middleman.adapter.model.Comparator
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
-import com.mohamadk.middleman.adapter.placeholder.PlaceHolder
+import com.mohamadk.middleman.AdapterProvider
+import com.mohamadk.middleman.GlobalViewHolder
+import com.mohamadk.middleman.model.BaseModel
+import com.mohamadk.middleman.model.Comparator
+import com.mohamadk.middleman.networkstate.NetworkState
+import com.mohamadk.middleman.placeholder.PlaceHolder
 import com.mohamadk.middleman.intractors.BaseIntractor
 import com.mohamadk.middleman.intractors.RequireInteractor
 
@@ -44,7 +44,7 @@ open class GeneralPagingViewAdapter(
 
         val itemView: View = createItemView(
             viewType
-            ,inflater!!
+            , inflater!!
             , parent
         )
 

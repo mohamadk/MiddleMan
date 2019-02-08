@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter.model
+package com.mohamadk.middleman.model
 
 interface ModelComparator<in MODEL> {
     fun areContentsTheSame(newItem: MODEL): Boolean

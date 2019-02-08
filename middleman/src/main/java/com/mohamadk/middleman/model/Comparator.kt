@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter.model
+package com.mohamadk.middleman.model
 
 import androidx.recyclerview.widget.DiffUtil
 

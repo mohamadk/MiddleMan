@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter
+package com.mohamadk.middleman
 
 interface Binder<in T> {
     fun bind(item: T?)

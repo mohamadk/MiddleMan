@@ -1,4 +1,4 @@
-package com.mohamadk.middleman.adapter
+package com.mohamadk.middleman
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
