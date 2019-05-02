@@ -2,7 +2,6 @@ package com.mohamadk.middleman.networkstate
 
 import com.mohamadk.middleman.R
 import com.mohamadk.middleman.model.BaseModel
-import kotlinx.android.parcel.Parcelize
 
 enum class Status {
     RUNNING,

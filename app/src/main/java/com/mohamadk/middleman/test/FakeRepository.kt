@@ -2,8 +2,8 @@ package com.mohamadk.middleman.test
 
 import android.os.Handler
 import androidx.lifecycle.MutableLiveData
-import com.mohamadk.middleman.adapter.model.BaseModel
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
+import com.mohamadk.middleman.model.BaseModel
+import com.mohamadk.middleman.networkstate.NetworkState
 import com.mohamadk.middleman.test.item1.ItemModel
 import com.mohamadk.middleman.test.item2.ItemModel2
 
@@ -37,9 +37,8 @@ class FakeRepository : Repository {
     )
 
 
-
     override fun getList(): Listing {
-        return Listing(listLive,networkStateLive)
+        return Listing(listLive, networkStateLive)
     }
 
     fun start() {
@@ -50,8 +49,7 @@ class FakeRepository : Repository {
 
             listLive.postValue(defaultItems)
 
-        },2000)
-
+        }, 2000)
 
 
     }

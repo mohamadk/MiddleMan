@@ -1,4 +1,4 @@
-//package com.mohamadk.middleman
+//package com.mohamadk.com.mohamadk.middleman
 //
 //import androidx.test.InstrumentationRegistry
 //import androidx.test.runner.AndroidJUnit4

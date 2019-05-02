@@ -1,9 +1,8 @@
 package com.mohamadk.middleman.test.item2
 
-import com.mohamadk.middleman.adapter.model.BaseModel
-import kotlinx.android.parcel.Parcelize
+import com.mohamadk.middleman.model.BaseModel
 
-@Parcelize
+
 class ItemModel2(
     val id: String
     , val title: String

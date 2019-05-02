@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .replace(R.id.mainContent, SampleListFragment(),SampleListFragment::class.simpleName)
+            .replace(R.id.mainContent, SampleListFragment(),SampleListFragment::class.java.simpleName)
             .commit()
     }
 }

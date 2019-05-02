@@ -7,7 +7,16 @@ it supports both simple list and paging list in recyclerView.
 [ ![Download](https://api.bintray.com/packages/mohamad-khaleghy/MiddleMan/MiddleMan/images/download.svg) ](https://bintray.com/mohamad-khaleghy/MiddleMan/MiddleMan/_latestVersion)
 
 ### why use Middleman?
-[you can find out here.][1]
+Recyclerview Mess:
+In almost all mobile applications there is a need for at least one page that shows a list of items it might be a list of
+ products, contacts messages,...
+In big projects like e-commerce applications when you have a lot of different items in a list and a lot of list pages it
+kind of becomes a big problem when you want to add a new item in Recyclerview you have to create new Viewholder then
+change your adapter to handling that kind of the
+view and what if your new item needed to talk to fragment then you have to change more in your adapter, what if you want
+to use this new item in other Recyclerviews in other pages? a lot of things to do right.
+
+[you can find out more here.][1]
 
 
 ### Gradle

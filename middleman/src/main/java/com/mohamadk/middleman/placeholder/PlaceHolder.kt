@@ -1,7 +1,6 @@
 package com.mohamadk.middleman.placeholder
 
 import com.mohamadk.middleman.model.BaseModel
-import kotlinx.android.parcel.Parcelize
 
 
 open class PlaceHolder : BaseModel {

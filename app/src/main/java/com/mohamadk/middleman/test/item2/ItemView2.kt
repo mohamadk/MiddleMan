@@ -5,7 +5,7 @@ import android.graphics.Color
 import android.util.AttributeSet
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
-import com.mohamadk.middleman.adapter.Binder
+import com.mohamadk.middleman.Binder
 import com.mohamadk.middleman.test.R
 import kotlinx.android.synthetic.main.item_layout2.view.*
 
@@ -13,7 +13,7 @@ class ItemView2
 @JvmOverloads constructor(
     context: Context,
     attributes: AttributeSet? = null,
-    defStyleAttributes: Int=0
+    defStyleAttributes: Int = 0
 ) : CardView(context, attributes, defStyleAttributes)
     , Binder<ItemModel2> {
 
@@ -21,7 +21,7 @@ class ItemView2
         inflate(context, R.layout.item_layout2, this)
         layoutParams = ViewGroup.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         useCompatPadding = true
-        setCardBackgroundColor(Color.GRAY)
+        setCardBackgroundColor(Color.WHITE)
     }
 
     override fun bind(item: ItemModel2?) {

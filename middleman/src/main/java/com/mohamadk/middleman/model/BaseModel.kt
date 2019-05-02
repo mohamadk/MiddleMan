@@ -1,6 +1,5 @@
 package com.mohamadk.middleman.model
 
-import android.os.Parcelable
 import androidx.annotation.LayoutRes
 import com.mohamadk.middleman.model.ModelTypes.types
 

@@ -1,16 +1,11 @@
 package com.mohamadk.middleman.test
 
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mohamadk.middleman.adapter.adapters.GeneralViewAdapter
-import com.mohamadk.middleman.adapter.model.BaseModel
-import com.mohamadk.middleman.adapter.networkstate.NetworkState
+import com.mohamadk.middleman.adapter.GeneralViewAdapter
 import com.mohamadk.middleman.intractors.RetryListener
-import com.mohamadk.middleman.test.item1.ItemModel
-import com.mohamadk.middleman.test.item2.ItemModel2
 import kotlinx.android.synthetic.main.list_fragment.*
 
 class SampleListFragment
@@ -19,7 +14,7 @@ class SampleListFragment
     , RetryListener
 {
 
-    lateinit var repository:Repository
+    val repository=FakeRepository()
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,7 +22,7 @@ class SampleListFragment
 
         list.apply {
 
-            adapter = GeneralViewAdapter(this@SampleListFragment).also {adapter->
+            adapter = GeneralViewAdapter(this@SampleListFragment).also { adapter->
 
                 val listing=repository.getList()
 
@@ -42,6 +37,9 @@ class SampleListFragment
             }
             layoutManager = LinearLayoutManager(activity)
         }
+
+        repository.start()
+
     }
 
     //sample call from items in adapter to fragment to interact. of course you can implement
