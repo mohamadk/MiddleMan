@@ -1,6 +1,7 @@
 package com.mohamadk.middleman.model
 
 object ModelTypes {
+    @JvmStatic
     val types:MutableSet<ModelType> = mutableSetOf()
 }
 

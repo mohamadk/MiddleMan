@@ -26,7 +26,7 @@ open class NetworkStateView @JvmOverloads constructor(
     override fun bind(item: NetworkState?) {
         progress_bar.visibility = (item!!.status == Status.RUNNING).toVisibility()
         retry_button.visibility = (item.status == Status.FAILED).toVisibility()
-        error_msg.visibility = (item.msg != null).toVisibility()
+        error_msg.visibility = item.msg.toVisibility()
         error_msg.text = item.msg
 
         retry_button.setOnClickListener {

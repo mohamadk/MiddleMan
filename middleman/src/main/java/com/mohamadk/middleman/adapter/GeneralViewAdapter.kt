@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mohamadk.middleman.AdapterProvider
 import com.mohamadk.middleman.GlobalViewHolder
-import com.mohamadk.middleman.model.BaseModel
-import com.mohamadk.middleman.networkstate.NetworkState
 import com.mohamadk.middleman.intractors.BaseIntractor
 import com.mohamadk.middleman.intractors.RequireInteractor
+import com.mohamadk.middleman.model.BaseModel
+import com.mohamadk.middleman.networkstate.NetworkState
 
 open class GeneralViewAdapter(
     private val interact: BaseIntractor? = null
@@ -16,7 +16,7 @@ open class GeneralViewAdapter(
     , AdapterProvider<List<BaseModel>> {
 
     private var networkState: NetworkState? = null
-    var items: MutableList<BaseModel> = mutableListOf()
+    open var items: MutableList<BaseModel> = mutableListOf()
     var inflater: LayoutInflater? = null
 
     private fun isNetworkStateView(position: Int) =
